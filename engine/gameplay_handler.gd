@@ -204,6 +204,8 @@ func game_over(is_win):
 
 
 func _on_ReturnButton_pressed():
+	# TODO avoid adding piece when clicking the return button, should use _unhandled_input instead but oh well
+	current_game_state = null 
 	GameData.sfx_player.stream = GameData.sound_effects[1]
 	GameData.sfx_player.play()
 	get_tree().change_scene_to_file("res://ui/LevelSelector.tscn")
