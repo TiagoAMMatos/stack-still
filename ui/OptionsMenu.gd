@@ -8,9 +8,9 @@ func _ready():
 	$"%MusicVolumeSlider".value = GameData.music_volume
 	$"%SoundEffectsVolumeSlider".value = GameData.sound_effects_volume
 	
-	$"%MasterVolumeLabel".text = str(GameData.master_volume * 100)
-	$"%MusicVolumeLabel".text = str(GameData.music_volume * 100)
-	$"%SoundEffectsVolumeLabel".text = str(GameData.sound_effects_volume * 100)
+	$"%MasterVolumeLabel".text = str(int(GameData.master_volume * 100))
+	$"%MusicVolumeLabel".text = str(int(GameData.music_volume * 100))
+	$"%SoundEffectsVolumeLabel".text = str(int(GameData.sound_effects_volume * 100))
 
 
 func _on_FullscreenCheckBox_toggled(button_pressed):
@@ -25,21 +25,21 @@ func _on_ReturnButton_pressed():
 
 
 func _on_MasterVolumeSlider_value_changed(value):
-	$"%MasterVolumeLabel".text = str(value * 100)
+	$"%MasterVolumeLabel".text = str(int(value * 100))
 	GameData.master_volume = value
 	GameData.save_config()
 	GameData.set_master_volume()
 
 
 func _on_MusicVolumeSlider_value_changed(value):
-	$"%MusicVolumeLabel".text = str(value * 100)
+	$"%MusicVolumeLabel".text = str(int(value * 100))
 	GameData.music_volume = value
 	GameData.save_config()
 	GameData.set_music_volume()
 
 
 func _on_SoundEffectsVolumeSlider_value_changed(value):
-	$"%SoundEffectsVolumeLabel".text = str(value * 100)
+	$"%SoundEffectsVolumeLabel".text = str(int(value * 100))
 	GameData.sound_effects_volume = value
 	GameData.save_config()
 	GameData.set_sound_effects_volume()

@@ -1,96 +1,91 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=13 format=3 uid="uid://bxb5h4ej1ja2u"]
 
-[ext_resource path="res://ui/RegularFont.res" type="FontFile" id=1]
-[ext_resource path="res://assets/ui/kenvector_future.ttf" type="FontFile" id=2]
-[ext_resource path="res://ui/Credits.gd" type="Script" id=3]
-[ext_resource path="res://assets/background_brown.png" type="Texture2D" id=4]
-[ext_resource path="res://assets/ui/return.png" type="Texture2D" id=5]
-[ext_resource path="res://ui/RegularButtonNormal.stylebox" type="StyleBox" id=6]
-[ext_resource path="res://ui/RegularButtonHover.stylebox" type="StyleBox" id=7]
-[ext_resource path="res://ui/RegularButtonPressed.stylebox" type="StyleBox" id=8]
+[ext_resource type="FontFile" path="res://ui/RegularFont.res" id="1"]
+[ext_resource type="Script" uid="uid://bucaj5nkcypkm" path="res://ui/Credits.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://bpc3iej8qtwan" path="res://assets/background_brown.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://3knd12tr5g1w" path="res://assets/ui/return.png" id="5"]
+[ext_resource type="StyleBox" uid="uid://cosvog5j77pit" path="res://ui/RegularButtonNormal.stylebox" id="6"]
+[ext_resource type="StyleBox" uid="uid://g6ul2kk58jpx" path="res://ui/RegularButtonHover.stylebox" id="7"]
+[ext_resource type="StyleBox" uid="uid://dmbdaoh6s3v8l" path="res://ui/RegularButtonPressed.stylebox" id="8"]
 
-[sub_resource type="StyleBoxEmpty" id=3]
+[sub_resource type="StyleBoxEmpty" id="4"]
 
-[sub_resource type="StyleBoxEmpty" id=4]
+[sub_resource type="StyleBoxEmpty" id="3"]
 
-[sub_resource type="StyleBoxEmpty" id=2]
+[sub_resource type="StyleBoxEmpty" id="2"]
 
-[sub_resource type="FontFile" id=1]
-size = 26
-spacing_top = 16
-font_data = ExtResource( 2 )
+[sub_resource type="FontVariation" id="FontVariation_0v7dy"]
+base_font = ExtResource("1")
+spacing_space = 10
+spacing_bottom = 7
+
+[sub_resource type="FontVariation" id="FontVariation_8w502"]
+base_font = ExtResource("1")
+spacing_space = 10
+spacing_top = 40
+spacing_bottom = 12
 
 [node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="BackgroundTextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 4 )
-stretch_mode = 2
+texture = ExtResource("4")
+stretch_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_top = 16
 theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 1008.0
-offset_bottom = 584.0
+layout_mode = 2
 
 [node name="ReturnButton" type="Button" parent="MarginContainer/VBoxContainer"]
-offset_right = 194.0
-offset_bottom = 76.0
+layout_mode = 2
 size_flags_horizontal = 0
-theme_override_colors/font_focus_color = Color( 1, 1, 1, 1 )
-theme_override_colors/font_color = Color( 1, 1, 1, 1 )
-theme_override_colors/font_hover_color = Color( 1, 1, 1, 1 )
-theme_override_colors/font_pressed_color = Color( 1, 1, 1, 1 )
-theme_override_fonts/font = ExtResource( 1 )
-theme_override_styles/hover = ExtResource( 7 )
-theme_override_styles/pressed = ExtResource( 8 )
-theme_override_styles/focus = SubResource( 3 )
-theme_override_styles/disabled = SubResource( 4 )
-theme_override_styles/normal = ExtResource( 6 )
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1")
+theme_override_styles/normal = ExtResource("6")
+theme_override_styles/pressed = ExtResource("8")
+theme_override_styles/hover = ExtResource("7")
+theme_override_styles/disabled = SubResource("4")
+theme_override_styles/focus = SubResource("3")
 text = "Return"
-icon = ExtResource( 5 )
+icon = ExtResource("5")
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
-offset_top = 80.0
-offset_right = 992.0
-offset_bottom = 568.0
+layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource( 2 )
+theme_override_styles/panel = SubResource("2")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelContainer"]
-offset_top = 147.0
-offset_right = 992.0
-offset_bottom = 341.0
-size_flags_horizontal = 5
-size_flags_vertical = 4
-theme_override_fonts/bold_font = SubResource( 1 )
-theme_override_fonts/normal_font = ExtResource( 1 )
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_0v7dy")
+theme_override_fonts/bold_font = SubResource("FontVariation_8w502")
+theme_override_font_sizes/bold_font_size = 26
 bbcode_enabled = true
-text = "[center][b]Made by:[/b]
+text = "[b]Made by:[/b]
 Pyvion
 
-[b]Assets used::[/b]
-[url=\"https://www.kenney.nl/assets/rolling-ball-assets\"]\"Rolling Ball Assets\"[/url] by [url=\"https://www.kenney.nl\"]Kenney[/url] is licenced under [url=\"https://creativecommons.org/publicdomain/zero/1.0/\"]CC0[/url].
-[/center]"
-text = "Made by:
-Pyvion
-
-Assets used::
+[b]Assets used:[/b]
 \"Rolling Ball Assets\" by Kenney is licenced under CC0.
 "
-fit_content_height = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]
 [connection signal="meta_clicked" from="MarginContainer/VBoxContainer/PanelContainer/RichTextLabel" to="." method="_on_RichTextLabel_meta_clicked"]

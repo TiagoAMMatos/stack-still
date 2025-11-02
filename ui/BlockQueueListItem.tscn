@@ -1,77 +1,85 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://dgt7r8pj4t4lx"]
 
-[ext_resource path="res://assets/ui/blue_panel.png" type="Texture2D" id=1]
-[ext_resource path="res://assets/ui/grey_panel.png" type="Texture2D" id=2]
-[ext_resource path="res://assets/block_narrow.png" type="Texture2D" id=3]
-[ext_resource path="res://assets/ui/kenvector_future.ttf" type="FontFile" id=4]
-[ext_resource path="res://ui/BlockQueueListItem.gd" type="Script" id=5]
+[ext_resource type="Texture2D" uid="uid://do0riul62epkh" path="res://assets/ui/blue_panel.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://dy8a8ur3jqob3" path="res://assets/ui/grey_panel.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://b5btiwuf3fpyg" path="res://assets/block_narrow.png" id="3"]
+[ext_resource type="FontFile" uid="uid://djqyj1cp5akfu" path="res://assets/ui/kenvector_future.ttf" id="4"]
+[ext_resource type="Script" uid="uid://b7perxsri8g1v" path="res://ui/BlockQueueListItem.gd" id="5"]
 
-[sub_resource type="StyleBoxTexture" id=3]
-texture = ExtResource( 1 )
-region_rect = Rect2( 0, 0, 100, 100 )
-offset_left = 10.0
-offset_right = 10.0
-offset_top = 10.0
-offset_bottom = 10.0
+[sub_resource type="StyleBoxTexture" id="3"]
+texture = ExtResource("1")
+region_rect = Rect2(0, 0, 100, 100)
 
-[sub_resource type="StyleBoxTexture" id=4]
-texture = ExtResource( 2 )
-region_rect = Rect2( 0, 0, 100, 100 )
-offset_left = 5.0
-offset_right = 5.0
-offset_top = 5.0
-offset_bottom = 5.0
+[sub_resource type="StyleBoxTexture" id="4"]
+texture = ExtResource("2")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
 
-[sub_resource type="FontFile" id=2]
-font_data = ExtResource( 4 )
+[sub_resource type="FontFile" id="2"]
+fallbacks = Array[Font]([ExtResource("4"), ExtResource("4")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
 
 [node name="BlockQueueListItem" type="Control"]
+custom_minimum_size = Vector2(94, 116)
+layout_mode = 3
+anchors_preset = 0
 offset_right = 94.0
 offset_bottom = 116.0
-custom_minimum_size = Vector2( 94, 116 )
-script = ExtResource( 5 )
+script = ExtResource("5")
 
 [node name="BlockQueueListItem" type="PanelContainer" parent="."]
+layout_mode = 0
 offset_right = 94.0
 offset_bottom = 116.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_styles/panel = SubResource( 3 )
+theme_override_styles/panel = SubResource("3")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="BlockQueueListItem"]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 84.0
-offset_bottom = 106.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="PanelContainer" type="PanelContainer" parent="BlockQueueListItem/HBoxContainer"]
-offset_right = 74.0
-offset_bottom = 74.0
-pivot_offset = Vector2( 37, 37 )
-theme_override_styles/panel = SubResource( 4 )
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("4")
 
 [node name="Control" type="Control" parent="BlockQueueListItem/HBoxContainer/PanelContainer"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 69.0
-offset_bottom = 69.0
-custom_minimum_size = Vector2( 64, 64 )
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="BlockQueueListItem/HBoxContainer/PanelContainer/Control"]
-offset_right = 64.0
-offset_bottom = 64.0
-custom_minimum_size = Vector2( 64, 64 )
-pivot_offset = Vector2( 32, 32 )
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 6
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("3")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="BlockQueueListItem/HBoxContainer"]
-offset_top = 78.0
-offset_right = 74.0
-offset_bottom = 96.0
-theme_override_fonts/font = SubResource( 2 )
+layout_mode = 2
+theme_override_fonts/font = SubResource("2")
 text = "64 * 64"
-align = 1
+horizontal_alignment = 1

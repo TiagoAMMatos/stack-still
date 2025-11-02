@@ -3,7 +3,7 @@ extends Node
 var music_player
 var sfx_player
 
-var master_volume = 1.0
+var master_volume = 0.2
 var music_volume = 1.0
 var sound_effects_volume = 1.0
 
@@ -74,9 +74,9 @@ func save_config():
 	var file = FileAccess.open("user://config.dat", FileAccess.WRITE)
 	
 	file.store_8(((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN)))
-	file.store_64(master_volume)
-	file.store_64(music_volume)
-	file.store_64(sound_effects_volume)
+	file.store_float(master_volume)
+	file.store_float(music_volume)
+	file.store_float(sound_effects_volume)
 	
 	file.close()
 
@@ -114,9 +114,9 @@ func load_config():
 		return
 	
 	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (file.get_8()) else Window.MODE_WINDOWED
-	master_volume = file.get_64()
-	music_volume = file.get_64()
-	sound_effects_volume = file.get_64()
+	master_volume = file.get_float()
+	music_volume = file.get_float()
+	sound_effects_volume = file.get_float()
 	
 	file.close()
 	

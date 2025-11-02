@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dddleqng5i87e" path="res://engine/gameplay_handler.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bpc3iej8qtwan" path="res://assets/background_brown.png" id="2"]
-[ext_resource type="PackedScene" path="res://ui/QueueList.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://lob8d2kgkjnv" path="res://ui/QueueList.tscn" id="3"]
 [ext_resource type="PackedScene" path="res://ui/UITimer.tscn" id="4"]
 [ext_resource type="FontFile" path="res://ui/RegularFont.res" id="5"]
-[ext_resource type="StyleBox" path="res://ui/TitleContainer-Content.stylebox" id="6"]
-[ext_resource type="StyleBox" path="res://ui/TitledPanelContainer.stylebox" id="7"]
+[ext_resource type="StyleBox" uid="uid://fa2p7b1se1sp" path="res://ui/TitleContainer-Content.stylebox" id="6"]
+[ext_resource type="StyleBox" uid="uid://duciaskjr1kxj" path="res://ui/TitledPanelContainer.stylebox" id="7"]
 [ext_resource type="FontFile" path="res://ui/TitleContainerTitle.res" id="8"]
-[ext_resource type="StyleBox" path="res://ui/RegularButtonNormal.stylebox" id="9"]
-[ext_resource type="StyleBox" path="res://ui/RegularButtonHover.stylebox" id="10"]
-[ext_resource type="StyleBox" path="res://ui/RegularButtonPressed.stylebox" id="11"]
+[ext_resource type="StyleBox" uid="uid://cosvog5j77pit" path="res://ui/RegularButtonNormal.stylebox" id="9"]
+[ext_resource type="StyleBox" uid="uid://g6ul2kk58jpx" path="res://ui/RegularButtonHover.stylebox" id="10"]
+[ext_resource type="StyleBox" uid="uid://dmbdaoh6s3v8l" path="res://ui/RegularButtonPressed.stylebox" id="11"]
 [ext_resource type="Texture2D" uid="uid://caksceguhxlsb" path="res://assets/ui/forward.png" id="12"]
 [ext_resource type="Texture2D" uid="uid://b8bwu31xk7jws" path="res://assets/ui/home.png" id="13"]
 [ext_resource type="Texture2D" uid="uid://3knd12tr5g1w" path="res://assets/ui/return.png" id="14"]
@@ -53,7 +53,6 @@ position = Vector2(512, 825)
 shape = SubResource("1")
 
 [node name="QueueList" parent="." instance=ExtResource("3")]
-anchors_preset = 10
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

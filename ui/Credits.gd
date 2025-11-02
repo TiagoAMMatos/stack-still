@@ -1,12 +1,14 @@
 extends Control
 
+const creator_link = "[color=#1EA7E1][url=\"https://github.com/TiagoAMMatos\"]github.com/TiagoAMMatos[/url][/color]"
+
 const licence_text = """
-[url="https://www.kenney.nl/assets/rolling-ball-assets"]"Rolling Ball Assets"[/url] by [url="https://www.kenney.nl"]Kenney[/url], licenced under [url="https://creativecommons.org/publicdomain/zero/1.0/"]CC0[/url]
-[url="https://www.kenney.nl/assets/game-icons"]"Game Icons"[/url] by [url="https://www.kenney.nl"]Kenney[/url], licenced under [url="https://creativecommons.org/publicdomain/zero/1.0/"]CC0[/url]
-[url="https://www.kenney.nl/assets/ui-pack"]"UI Pack"[/url] by [url="https://www.kenney.nl"]Kenney[/url], licenced under [url="https://creativecommons.org/publicdomain/zero/1.0/"]CC0[/url]
-[url="https://opengameart.org/content/4-chiptunes-adventure"]"4 Chiptunes (Adventure)"[/url] by [url="https://juhanijunkala.com/"]Juhani Junkala[/url], licenced under [url="https://creativecommons.org/publicdomain/zero/1.0/"]CC0[/url]
-[url="https://opengameart.org/content/ui-sound-effects-button-clicks-user-feedback-notifications"]"UI Sound Effects (Button Clicks, User Feedback, Notifications)"[/url], licenced under [url="https://creativecommons.org/publicdomain/zero/1.0/"]CC0[/url]
-[url="https://opengameart.org/content/ticking-clock-0"]"Ticking Clock" by [url="https://opengameart.org/users/antumdeluge"]Jordan Irwin[/url], licenced under [url="https://creativecommons.org/publicdomain/zero/1.0/"]CC0[/url]
+[color=#1EA7E1][url="https://www.kenney.nl/assets/rolling-ball-assets"]"Rolling Ball Assets"[/url][/color] by [color=#1EA7E1][url="https://www.kenney.nl"]Kenney[/url][/color], licenced under [color=#1EA7E1][url="https://creativecommons.org/publicdomain/zero/1.0/"]CC0[/url][/color]
+[color=#1EA7E1][url="https://www.kenney.nl/assets/game-icons"]"Game Icons"[/url][/color] by [color=#1EA7E1][url="https://www.kenney.nl"]Kenney[/url][/color], licenced under [color=#1EA7E1][url="https://creativecommons.org/publicdomain/zero/1.0/"]CC0[/url][/color]
+[color=#1EA7E1][url="https://www.kenney.nl/assets/ui-pack"]"UI Pack"[/url][/color] by [color=#1EA7E1][url="https://www.kenney.nl"]Kenney[/url][/color], licenced under [color=#1EA7E1][url="https://creativecommons.org/publicdomain/zero/1.0/"]CC0[/url][/color]
+[color=#1EA7E1][url="https://opengameart.org/content/4-chiptunes-adventure"]"4 Chiptunes (Adventure)"[/url][/color] by [color=#1EA7E1][url="https://juhanijunkala.com/"]Juhani Junkala[/url][/color], licenced under [color=#1EA7E1][url="https://creativecommons.org/publicdomain/zero/1.0/"]CC0[/url][/color]
+[color=#1EA7E1][url="https://opengameart.org/content/ui-sound-effects-button-clicks-user-feedback-notifications"]"UI Sound Effects (Button Clicks, User Feedback, Notifications)"[/url][/color], licenced under [color=#1EA7E1][url="https://creativecommons.org/publicdomain/zero/1.0/"]CC0[/url][/color]
+[color=#1EA7E1][url="https://opengameart.org/content/ticking-clock-0"]"Ticking Clock"[/url][/color] by [color=#1EA7E1][url="https://opengameart.org/users/antumdeluge"]Jordan Irwin[/url][/color], licenced under [color=#1EA7E1][url="https://creativecommons.org/publicdomain/zero/1.0/"]CC0[/url][/color]
 """
 
 func _ready():
@@ -16,8 +18,8 @@ func _ready():
 		GameData.music_player.play()
 	
 	# Setup text
-	var base_text = "[center][b]Made by:[/b]\nPyvion\n\n[b]Assets used:[/b]{}[center]\n\n"
-	var full_text = base_text.format([licence_text], "{}")
+	var base_text = "[b]Made by:[/b]\n{}\n\n[b]Assets used:[/b]{}\n\n"
+	var full_text = base_text.format([creator_link, licence_text], "{}")
 	$MarginContainer/VBoxContainer/PanelContainer/RichTextLabel.text = full_text
 
 

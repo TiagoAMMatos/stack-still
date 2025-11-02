@@ -1,32 +1,33 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://38ind427v6k2"]
 
-[ext_resource path="res://assets/ui/locked.png" type="Texture2D" id=1]
-[ext_resource path="res://ui/LevelSelectorItem.gd" type="Script" id=2]
-[ext_resource path="res://ui/RegularButtonNormal.stylebox" type="StyleBox" id=3]
-[ext_resource path="res://ui/RegularButtonHover.stylebox" type="StyleBox" id=4]
-[ext_resource path="res://ui/RegularButtonPressed.stylebox" type="StyleBox" id=5]
-[ext_resource path="res://ui/RegularFont.res" type="FontFile" id=6]
-[ext_resource path="res://ui/LevelSelectorItemNomal.stylebox" type="StyleBox" id=7]
+[ext_resource type="Texture2D" uid="uid://dpfuuxut67duk" path="res://assets/ui/locked.png" id="1"]
+[ext_resource type="Script" uid="uid://4xg6iebjgtkq" path="res://ui/LevelSelectorItem.gd" id="2"]
+[ext_resource type="StyleBox" uid="uid://cosvog5j77pit" path="res://ui/RegularButtonNormal.stylebox" id="3"]
+[ext_resource type="StyleBox" uid="uid://g6ul2kk58jpx" path="res://ui/RegularButtonHover.stylebox" id="4"]
+[ext_resource type="StyleBox" uid="uid://dmbdaoh6s3v8l" path="res://ui/RegularButtonPressed.stylebox" id="5"]
+[ext_resource type="FontFile" path="res://ui/RegularFont.res" id="6"]
+[ext_resource type="StyleBox" path="res://ui/LevelSelectorItemNomal.stylebox" id="7"]
 
-[sub_resource type="StyleBoxEmpty" id=2]
+[sub_resource type="StyleBoxEmpty" id="2"]
 
 [node name="LevelSelectorItem" type="Button"]
-custom_minimum_size = Vector2( 80, 80 )
+custom_minimum_size = Vector2(80, 80)
 mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource( 6 )
-theme_override_styles/hover = ExtResource( 4 )
-theme_override_styles/pressed = ExtResource( 5 )
-theme_override_styles/focus = SubResource( 2 )
-theme_override_styles/disabled = ExtResource( 7 )
-theme_override_styles/normal = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("6")
+theme_override_styles/normal = ExtResource("3")
+theme_override_styles/pressed = ExtResource("5")
+theme_override_styles/hover = ExtResource("4")
+theme_override_styles/disabled = ExtResource("7")
+theme_override_styles/focus = SubResource("2")
 text = "1"
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color( 0.137255, 0.670588, 0.898039, 1 )
+modulate = Color(0.137255, 0.670588, 0.898039, 1)
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1.0
 offset_bottom = -8.0
-texture = ExtResource( 1 )
-stretch_mode = 4
+texture = ExtResource("1")
+stretch_mode = 5
