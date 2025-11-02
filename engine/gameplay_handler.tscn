@@ -1,0 +1,213 @@
+[gd_scene load_steps=20 format=3 uid="uid://deki7qmy71118"]
+
+[ext_resource type="Script" uid="uid://dddleqng5i87e" path="res://engine/gameplay_handler.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bpc3iej8qtwan" path="res://assets/background_brown.png" id="2"]
+[ext_resource type="PackedScene" path="res://ui/QueueList.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://ui/UITimer.tscn" id="4"]
+[ext_resource type="FontFile" path="res://ui/RegularFont.res" id="5"]
+[ext_resource type="StyleBox" path="res://ui/TitleContainer-Content.stylebox" id="6"]
+[ext_resource type="StyleBox" path="res://ui/TitledPanelContainer.stylebox" id="7"]
+[ext_resource type="FontFile" path="res://ui/TitleContainerTitle.res" id="8"]
+[ext_resource type="StyleBox" path="res://ui/RegularButtonNormal.stylebox" id="9"]
+[ext_resource type="StyleBox" path="res://ui/RegularButtonHover.stylebox" id="10"]
+[ext_resource type="StyleBox" path="res://ui/RegularButtonPressed.stylebox" id="11"]
+[ext_resource type="Texture2D" uid="uid://caksceguhxlsb" path="res://assets/ui/forward.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://b8bwu31xk7jws" path="res://assets/ui/home.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://3knd12tr5g1w" path="res://assets/ui/return.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://4g46v737hs0b" path="res://assets/ui/save.png" id="15"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(10000, 400)
+
+[sub_resource type="StyleBoxEmpty" id="2"]
+
+[sub_resource type="StyleBoxEmpty" id="4"]
+
+[sub_resource type="StyleBoxEmpty" id="3"]
+
+[node name="gameplay_handler" type="Node"]
+script = ExtResource("1")
+
+[node name="background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource("2")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="block_preview" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.505882)
+
+[node name="level" type="Node2D" parent="."]
+
+[node name="static" type="Node2D" parent="level"]
+
+[node name="active" type="Node2D" parent="level"]
+
+[node name="OutOfBoundsArea2D" type="Area2D" parent="."]
+position = Vector2(512, 825)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutOfBoundsArea2D"]
+shape = SubResource("1")
+
+[node name="QueueList" parent="." instance=ExtResource("3")]
+anchors_preset = 10
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="UITimer" parent="." instance=ExtResource("4")]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -505.0
+offset_top = -435.0
+offset_right = -221.0
+offset_bottom = -401.0
+
+[node name="Label" type="Label" parent="UITimer"]
+layout_mode = 0
+offset_top = -17.0
+offset_right = 119.0
+offset_bottom = 1.0
+theme_override_fonts/font = ExtResource("5")
+text = "Stabilizing"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+process_mode = 3
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="EndGamePanel" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/EndGamePanel"]
+layout_mode = 2
+mouse_filter = 0
+
+[node name="LostLabel" type="Label" parent="CenterContainer/EndGamePanel/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("8")
+text = "level failed"
+horizontal_alignment = 1
+
+[node name="WonLabel" type="Label" parent="CenterContainer/EndGamePanel/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("8")
+text = "Level cleared"
+horizontal_alignment = 1
+
+[node name="EndLabel" type="Label" parent="CenterContainer/EndGamePanel/VBoxContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("8")
+text = "  You beat the game!  "
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/EndGamePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/EndGamePanel/VBoxContainer/PanelContainer"]
+layout_mode = 2
+mouse_filter = 0
+theme_override_constants/separation = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/EndGamePanel/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 0
+alignment = 1
+
+[node name="HomeButton" type="Button" parent="CenterContainer/EndGamePanel/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5")
+theme_override_styles/normal = ExtResource("9")
+theme_override_styles/pressed = ExtResource("11")
+theme_override_styles/hover = ExtResource("10")
+theme_override_styles/focus = SubResource("2")
+text = "Main Menu"
+icon = ExtResource("13")
+
+[node name="RepeatButton" type="Button" parent="CenterContainer/EndGamePanel/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5")
+theme_override_styles/normal = ExtResource("9")
+theme_override_styles/pressed = ExtResource("11")
+theme_override_styles/hover = ExtResource("10")
+theme_override_styles/focus = SubResource("2")
+text = "Repeat"
+icon = ExtResource("14")
+
+[node name="NextLevelButton" type="Button" parent="CenterContainer/EndGamePanel/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5")
+theme_override_styles/normal = ExtResource("9")
+theme_override_styles/pressed = ExtResource("11")
+theme_override_styles/hover = ExtResource("10")
+theme_override_styles/focus = SubResource("2")
+text = "Next Level"
+icon = ExtResource("12")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/EndGamePanel/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SaveScreenshotButton" type="Button" parent="CenterContainer/EndGamePanel/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5")
+theme_override_styles/normal = ExtResource("9")
+theme_override_styles/pressed = ExtResource("11")
+theme_override_styles/hover = ExtResource("10")
+theme_override_styles/focus = SubResource("2")
+text = "Save Screenshot"
+icon = ExtResource("15")
+
+[node name="ReturnButton" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -92.0
+offset_right = 130.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_styles/normal = ExtResource("9")
+theme_override_styles/pressed = ExtResource("11")
+theme_override_styles/hover = ExtResource("10")
+theme_override_styles/disabled = SubResource("4")
+theme_override_styles/focus = SubResource("3")
+icon = ExtResource("14")
+
+[node name="ScreenshotWatermark" type="Label" parent="."]
+visible = false
+offset_left = 24.0
+offset_top = 553.0
+offset_right = 143.0
+offset_bottom = 577.0
+theme_override_fonts/font = ExtResource("5")
+text = "Still Stack - Level 1"
+
+[connection signal="body_entered" from="OutOfBoundsArea2D" to="." method="_on_OutOfBoundsArea2D_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="CenterContainer/EndGamePanel/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/HomeButton" to="." method="_on_HomeButton_pressed"]
+[connection signal="pressed" from="CenterContainer/EndGamePanel/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/RepeatButton" to="." method="_on_RepeatButton_pressed"]
+[connection signal="pressed" from="CenterContainer/EndGamePanel/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/NextLevelButton" to="." method="_on_NextLevelButton_pressed"]
+[connection signal="pressed" from="CenterContainer/EndGamePanel/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2/SaveScreenshotButton" to="." method="_on_SaveScreenshotButton_pressed"]
+[connection signal="pressed" from="ReturnButton" to="." method="_on_ReturnButton_pressed"]

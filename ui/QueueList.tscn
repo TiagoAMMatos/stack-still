@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/ui/grey_panel.png" type="Texture2D" id=1]
+[ext_resource path="res://ui/BlockQueueListItem.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/ui/yellow_panel.png" type="Texture2D" id=3]
+[ext_resource path="res://ui/QueueList.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 100, 100 )
+offset_left = 10.0
+offset_right = 10.0
+offset_top = 10.0
+offset_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 100, 100 )
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="Theme" id=7]
+HScrollBar/styles/scroll = SubResource( 6 )
+
+[node name="QueueList" type="PanelContainer"]
+anchor_right = 1.0
+theme_override_styles/panel = SubResource( 5 )
+script = ExtResource( 4 )
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 10.0
+offset_bottom = 10.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource( 8 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 1014.0
+offset_bottom = 126.0
+custom_minimum_size = Vector2( 0, 9.471 )
+theme = SubResource( 7 )
+scroll_vertical_enabled = false
+
+[node name="VBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+offset_right = 1030.0
+offset_bottom = 116.0
+custom_minimum_size = Vector2( 0, 116 )
+clip_contents = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="BlockQueueListItem" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+
+[node name="BlockQueueListItem2" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+offset_left = 104.0
+offset_right = 198.0
+
+[node name="BlockQueueListItem3" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+offset_left = 208.0
+offset_right = 302.0
+
+[node name="BlockQueueListItem4" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+offset_left = 312.0
+offset_right = 406.0
+
+[node name="BlockQueueListItem5" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+offset_left = 416.0
+offset_right = 510.0
+
+[node name="BlockQueueListItem6" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+offset_left = 520.0
+offset_right = 614.0
+
+[node name="BlockQueueListItem7" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+offset_left = 624.0
+offset_right = 718.0
+
+[node name="BlockQueueListItem8" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+offset_left = 728.0
+offset_right = 822.0
+
+[node name="BlockQueueListItem9" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+offset_left = 832.0
+offset_right = 926.0
+
+[node name="BlockQueueListItem10" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+offset_left = 936.0
+offset_right = 1030.0
