@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Stack Still"
+config/description="Physics puzzle game made in Godot 4."
 run/main_scene="res://ui/MainMenu.tscn"
 config/features=PackedStringArray("4.5")
 config/icon="res://assets/block_square.png"
